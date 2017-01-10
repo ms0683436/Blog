@@ -1,0 +1,12 @@
+extends layout
+
+block content
+if !loginStatus
+  .hero-unit
+    h1 歡迎來到 Microblog
+    p Microblog 是一個基於 Node.js 的社群系统。
+    p
+      a.btn.btn-primary.btn-large(href="/login")登入
+      a.btn.btn-large(href="/reg")立即註冊
+else
+  form
