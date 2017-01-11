@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  form.form-horizontal(method="post")
+    fieldset
+      legend 註冊
+      .control-group
+        label.control-label(for="username") 使用者名稱
+        .controls
+          input.input-xlarge(type="text" id="username" name="username")
+          p.help-block 你的帳戶名稱
+      .control-group
+        label.control-label(for="password") 密碼
+        .controls
+          input.input-xlarge(type="password" id="password" name="password")
+      .control-group
+        label.control-label(for="Repassword") 確認密碼
+        .controls
+          input.input-xlarge(type="password" id="Repassword" name="Repassword")
+      .form-actions
+        button.btn.btn-primary(type="submit") 註冊

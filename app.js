@@ -19,6 +19,7 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.cookieParser('123456789'));//記得設定key來傳遞資訊
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -28,7 +29,13 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/user/:user', routes.user);
+app.get('/reg', routes.reg);
+app.post('/reg', routes.doReg);
+app.get('/login', routes.login);
+app.post('/login', routes.doLogin);
+app.get('/logout', routes.logout );
+app.post('/post', routes.post);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
